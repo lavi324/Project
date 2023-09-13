@@ -17,4 +17,4 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/yourusername/project
+   git clone https://github.com/lavi324/project
