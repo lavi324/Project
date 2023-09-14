@@ -25,6 +25,7 @@ teams_data = [
     {"name": "Bayern", "place": 5, "points": 54, "wins": 15, "draws":9, "losses": 4, "goals_scored": 54, "goals_conceded": 35},
     {"name": "Juventus", "place": 6, "points": 52, "wins": 15, "draws": 7, "losses": 6, "goals_scored": 51, "goals_conceded": 42},
     {"name": "Hapoel tel aviv", "place": 7, "points": 41, "wins": 11, "draws": 8, "losses": 9, "goals_scored": 42, "goals_conceded": 46},
+    {"name": "Dortmund", "place": 8, "points": 38, "wins": 10, "draws": 8, "losses": 10, "goals_scored": 41, "goals_conceded": 50},
 ]
 
 # Create a flag to ensure one-time database setup
