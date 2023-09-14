@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevOps League Table</title>
+</head>
+<body>
+    <h1>DevOps League Table</h1>
+    <table border="1">
+        <tr>
+            <th>Place</th>
+            <th>Team</th>
+            <th>Points</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>Goals Scored</th>
+            <th>Goals Conceded</th>
+        </tr>
+        {% for team in teams %}
+        <tr>
+            <td>{{ team.place }}</td>
+            <td>{{ team.name }}</td>
+            <td>{{ team.points }}</td>
+            <td>{{ team.wins }}</td>
+            <td>{{ team.draws }}</td>
+            <td>{{ team.losses }}</td>
+            <td>{{ team.goals_scored }}</td>
+            <td>{{ team.goals_conceded }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

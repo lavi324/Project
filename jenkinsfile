@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE_NAME = 'devops-league-app'
+        DOCKER_CONTAINER_NAME = 'musing_wozniak' // The name of your existing container
+        DOCKER_IMAGE_TAG = 'latest' // Use a specific tag if needed
+    }
+
+    stages {
+        stage('Cleanup') {
+            steps {
+                script {
+                    // Stop and remove the existing container if it exists
+                    sh "docker stop ${DOCKER_CONTAINER_NAME} || true"
+                    sh "docker rm ${DOCKER_CONTAINER_NAME} || true"
+
+                    // Remove the existing Docker image if it exists
+                    sh "docker rmi ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} || true"
+                }
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build and Run') {
+            when {
+                changeset '**/*.py' // Trigger the build when Python files change
+            }
+            steps {
+                script {
+                    // Build a Docker image of your Flask app
+                    sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
+                    
+                    // Run the Docker container on port 4000 with the same name as before
+                    sh "docker run -d -p 4000:80 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                }
+            }
+        }
+    }
+}
