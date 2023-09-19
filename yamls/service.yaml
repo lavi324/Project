@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-league-app-service
+spec:
+  selector:
+    app: devops-league-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000  # Update to match the port your Flask app is running on
+  type: LoadBalancer  # Use LoadBalancer type if available in your cluster
