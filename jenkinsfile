@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE_NAME = 'devops-league-app'
-        DOCKER_CONTAINER_NAME = 'nostalgic_shaw' // The name of your existing container
+        DOCKER_CONTAINER_NAME = 'confident_burnell' // The name of your existing container
         DOCKER_IMAGE_TAG = 'latest' // Use a specific tag if needed
     }
 
